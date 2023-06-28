@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:transvirtual_app/presentation/dashboard/components/footer.dart';
 import 'package:transvirtual_app/presentation/widgets/widgets.dart';
 import 'package:transvirtual_app/utils/ui_helpers.dart';
 
@@ -27,6 +28,7 @@ class Dashboard extends StatelessWidget {
             Header(),
             verticalSpaceMedium,
             BodyButtons(),
+            BodyFooter(),
           ],
         ),
       ),

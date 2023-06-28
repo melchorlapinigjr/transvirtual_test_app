@@ -8,6 +8,8 @@ class MyLabel extends StatelessWidget {
   final bool? shouldOverflow;
   final Color? color;
   final FontWeight? fontWeight;
+  final bool? underline;
+  final double? letterSpacing;
 
   const MyLabel(
       {super.key,
@@ -15,14 +17,21 @@ class MyLabel extends StatelessWidget {
       this.type,
       this.shouldOverflow = true,
       this.fontWeight,
-      this.color});
+      this.color,
+      this.underline = false,
+      this.letterSpacing});
 
   @override
   Widget build(BuildContext context) {
     return Text(
       title,
       style: TextStyle(
-          color: color, fontSize: getTitleSize(), fontWeight: fontWeight),
+        color: color,
+        fontSize: getTitleSize(),
+        fontWeight: fontWeight,
+        letterSpacing: letterSpacing,
+        decoration: underline! ? TextDecoration.underline : null,
+      ),
       overflow: shouldOverflow! ? TextOverflow.ellipsis : null,
       textAlign: TextAlign.center,
     );
