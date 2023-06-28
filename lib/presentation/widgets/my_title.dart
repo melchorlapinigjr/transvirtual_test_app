@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../enums/title_types.dart';
+import '../../enums/title_types.dart';
 
 class MyTitle extends StatelessWidget {
   final String title;
