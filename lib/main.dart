@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:transvirtual_app/presentation/dashboard/dashboard.dart';
 
 import 'presentation/sign_in/sign_in.dart';
 
@@ -17,10 +18,11 @@ class MyApp extends StatelessWidget {
       title: 'TransVirtual',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          useMaterial3: true,
-          colorScheme: Theme.of(context).colorScheme.copyWith(
-              tertiaryContainer: Colors.lightBlue, background: Colors.white),),
-      home: const SignIn(),
+        useMaterial3: true,
+        colorScheme: Theme.of(context).colorScheme.copyWith(
+            tertiaryContainer: Colors.lightBlue, background: Colors.white),
+      ),
+      home: const Dashboard(),
     );
   }
 }

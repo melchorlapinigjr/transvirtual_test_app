@@ -7,18 +7,22 @@ class MyLabel extends StatelessWidget {
   final TitleTypes? type;
   final bool? shouldOverflow;
   final Color? color;
+  final FontWeight? fontWeight;
 
-  const MyLabel({super.key,
-    required this.title,
-    this.type,
-    this.shouldOverflow = true,
-    this.color});
+  const MyLabel(
+      {super.key,
+      required this.title,
+      this.type,
+      this.shouldOverflow = true,
+      this.fontWeight,
+      this.color});
 
   @override
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: TextStyle(color: color, fontSize: getTitleSize()),
+      style: TextStyle(
+          color: color, fontSize: getTitleSize(), fontWeight: fontWeight),
       overflow: shouldOverflow! ? TextOverflow.ellipsis : null,
       textAlign: TextAlign.center,
     );
@@ -32,10 +36,8 @@ class MyLabel extends StatelessWidget {
         return 24;
       case TitleTypes.medium:
         return 16;
-      case TitleTypes.small:
-        return 12;
       default:
-        return 48;
+        return 14;
     }
   }
 }
