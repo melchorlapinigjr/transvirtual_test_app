@@ -10,6 +10,8 @@ class MyLabel extends StatelessWidget {
   final FontWeight? fontWeight;
   final bool? underline;
   final double? letterSpacing;
+  final int? maxLines;
+  final TextAlign? textAlign;
 
   const MyLabel(
       {super.key,
@@ -19,12 +21,15 @@ class MyLabel extends StatelessWidget {
       this.fontWeight,
       this.color,
       this.underline = false,
+      this.maxLines,
+      this.textAlign,
       this.letterSpacing});
 
   @override
   Widget build(BuildContext context) {
     return Text(
       title,
+      maxLines: maxLines,
       style: TextStyle(
         color: color,
         fontSize: getTitleSize(),
@@ -33,7 +38,7 @@ class MyLabel extends StatelessWidget {
         decoration: underline! ? TextDecoration.underline : null,
       ),
       overflow: shouldOverflow! ? TextOverflow.ellipsis : null,
-      textAlign: TextAlign.center,
+      textAlign: textAlign ?? TextAlign.center,
     );
   }
 

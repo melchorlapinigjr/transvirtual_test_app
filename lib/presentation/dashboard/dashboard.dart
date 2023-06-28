@@ -5,6 +5,7 @@ import 'package:transvirtual_app/utils/ui_helpers.dart';
 
 import 'components/buttons.dart';
 import 'components/header.dart';
+import 'components/user_details.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
@@ -28,7 +29,11 @@ class Dashboard extends StatelessWidget {
             Header(),
             verticalSpaceMedium,
             BodyButtons(),
+            verticalSpaceMedium,
+            UserDetails(),
+            verticalSpaceMedium,
             BodyFooter(),
+            verticalSpaceMedium,
           ],
         ),
       ),
