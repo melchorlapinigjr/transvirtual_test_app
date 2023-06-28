@@ -12,16 +12,15 @@ class CompanyLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment:
-          isSmall! ? MainAxisAlignment.center : MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Icon(
           Icons.sports_baseball,
           color: color ?? Colors.white,
           size: isSmall! ? 48 : 64,
         ),
-        SizedBox(
-          width: isSmall! ? 16 : 0,
+        const SizedBox(
+          width: 16,
         ),
         MyLabel(
           title: 'TransVirtual',
