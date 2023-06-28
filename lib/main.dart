@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:transvirtual_app/presentation/dashboard/dashboard.dart';
 
-void main() async{
+import 'presentation/sign_in/sign_in.dart';
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
@@ -16,10 +17,10 @@ class MyApp extends StatelessWidget {
       title: 'TransVirtual',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const Dashboard(),
+          useMaterial3: true,
+          colorScheme: Theme.of(context).colorScheme.copyWith(
+              tertiaryContainer: Colors.lightBlue, background: Colors.white),),
+      home: const SignIn(),
     );
   }
 }

@@ -1,1 +1,1 @@
-enum TitleTypes { large, medium, small }
+enum TitleTypes { large, medium, small, extraLarge, xxL }

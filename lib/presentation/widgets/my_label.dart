@@ -2,32 +2,40 @@ import 'package:flutter/material.dart';
 
 import '../../enums/title_types.dart';
 
-class MyTitle extends StatelessWidget {
+class MyLabel extends StatelessWidget {
   final String title;
   final TitleTypes? type;
   final bool? shouldOverflow;
+  final Color? color;
 
-  const MyTitle(
-      {super.key, required this.title, this.type, this.shouldOverflow = true});
+  const MyLabel({super.key,
+    required this.title,
+    this.type,
+    this.shouldOverflow = true,
+    this.color});
 
   @override
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: getTitleStyle(context),
+      style: TextStyle(color: color, fontSize: getTitleSize()),
       overflow: shouldOverflow! ? TextOverflow.ellipsis : null,
       textAlign: TextAlign.center,
     );
   }
 
-  TextStyle getTitleStyle(context) {
+  double getTitleSize() {
     switch (type) {
+      case TitleTypes.extraLarge:
+        return 34;
+      case TitleTypes.large:
+        return 24;
       case TitleTypes.medium:
-        return Theme.of(context).textTheme.titleMedium!;
+        return 16;
       case TitleTypes.small:
-        return Theme.of(context).textTheme.titleSmall!;
+        return 12;
       default:
-        return Theme.of(context).textTheme.titleLarge!;
+        return 48;
     }
   }
 }
