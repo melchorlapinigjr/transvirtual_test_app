@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../enums/title_types.dart';
+import '../../enums/label_sizes.dart';
 import 'widgets.dart';
 
 class MyInputField extends StatelessWidget {
@@ -28,7 +28,7 @@ class MyInputField extends StatelessWidget {
       decoration: InputDecoration(
         label: MyLabel(
           title: label,
-          type: TitleTypes.medium,
+          type: LabelSizes.medium,
         ),
         labelStyle: const TextStyle(color: Colors.white),
         suffixIcon: Icon(

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../enums/title_types.dart';
+import '../../enums/label_sizes.dart';
 
 class MyLabel extends StatelessWidget {
   final String title;
-  final TitleTypes? type;
+  final LabelSizes? type;
   final bool? shouldOverflow;
   final Color? color;
   final FontWeight? fontWeight;
@@ -44,11 +44,11 @@ class MyLabel extends StatelessWidget {
 
   double getTitleSize() {
     switch (type) {
-      case TitleTypes.extraLarge:
+      case LabelSizes.extraLarge:
         return 34;
-      case TitleTypes.large:
+      case LabelSizes.large:
         return 24;
-      case TitleTypes.medium:
+      case LabelSizes.medium:
         return 16;
       default:
         return 14;

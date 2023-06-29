@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:transvirtual_app/core/services/connection_helper.dart';
 import 'package:transvirtual_app/data/model/user.dart';
-import 'package:transvirtual_app/enums/title_types.dart';
+import 'package:transvirtual_app/enums/label_sizes.dart';
 import 'package:transvirtual_app/presentation/widgets/my_label.dart';
 
 class UserDetails extends StatelessWidget {
@@ -65,7 +65,7 @@ class DetailsItem extends StatelessWidget {
                 title: label,
                 maxLines: 2,
                 textAlign: TextAlign.left,
-                type: TitleTypes.medium,
+                type: LabelSizes.medium,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -74,7 +74,7 @@ class DetailsItem extends StatelessWidget {
               alignment: Alignment.topLeft,
               child: MyLabel(
                 title: value,
-                type: TitleTypes.medium,
+                type: LabelSizes.medium,
                 maxLines: 3,
               ),
             ),

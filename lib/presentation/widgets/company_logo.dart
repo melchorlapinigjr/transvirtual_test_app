@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../enums/title_types.dart';
+import '../../enums/label_sizes.dart';
 import 'widgets.dart';
 
 class CompanyLogo extends StatelessWidget {
@@ -24,7 +24,7 @@ class CompanyLogo extends StatelessWidget {
         ),
         MyLabel(
           title: 'TransVirtual',
-          type: isSmall! ? TitleTypes.large : TitleTypes.extraLarge,
+          type: isSmall! ? LabelSizes.large : LabelSizes.extraLarge,
           color: color ?? Colors.white,
         )
       ],

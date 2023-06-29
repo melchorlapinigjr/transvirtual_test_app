@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:transvirtual_app/enums/title_types.dart';
+import 'package:transvirtual_app/enums/label_sizes.dart';
 
 import '../../../utils/ui_helpers.dart';
 import '../../widgets/widgets.dart';
@@ -23,7 +23,7 @@ class BodyFooter extends StatelessWidget {
         MyLabel(
           title:
               'Copyright @ 2014-${DateTime.now().year} Rapid Teks. All rights reserved.',
-          type: TitleTypes.medium,
+          type: LabelSizes.medium,
         )
       ],
     );
@@ -35,7 +35,7 @@ class BodyFooter extends StatelessWidget {
       letterSpacing: 2,
       underline: true,
       color: Colors.orangeAccent,
-      type: TitleTypes.medium,
+      type: LabelSizes.medium,
     );
   }
 }

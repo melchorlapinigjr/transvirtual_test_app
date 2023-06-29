@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:transvirtual_app/enums/title_types.dart';
+import 'package:transvirtual_app/enums/label_sizes.dart';
 import 'package:transvirtual_app/presentation/widgets/widgets.dart';
 
 class Header extends StatelessWidget {
@@ -25,7 +25,7 @@ class Header extends StatelessWidget {
   Widget buildItem(String title, Color color) {
     return MyLabel(
       title: title,
-      type: TitleTypes.large,
+      type: LabelSizes.large,
       color: color,
       fontWeight: FontWeight.w500,
     );

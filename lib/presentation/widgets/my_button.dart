@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../enums/title_types.dart';
+import '../../enums/label_sizes.dart';
 import 'widgets.dart';
 
 class MyButton extends StatelessWidget {
@@ -48,7 +48,7 @@ class MyButton extends StatelessWidget {
                   SizedBox(width: leadingIcon != null ? 16 : 0),
                   MyLabel(
                     title: label,
-                    type: TitleTypes.large,
+                    type: LabelSizes.large,
                     color: Colors.white,
                   ),
                 ],
