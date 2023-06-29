@@ -3,12 +3,22 @@ import 'package:transvirtual_app/presentation/dashboard/components/footer.dart';
 import 'package:transvirtual_app/presentation/widgets/widgets.dart';
 import 'package:transvirtual_app/utils/ui_helpers.dart';
 
+import '../../data/model/user.dart';
 import 'components/buttons.dart';
 import 'components/header.dart';
 import 'components/user_details.dart';
 
 class Dashboard extends StatelessWidget {
-  const Dashboard({super.key});
+  final User user;
+
+  const Dashboard({super.key, required this.user});
+
+  static Route<String> route(User user) {
+    return MaterialPageRoute(
+        builder: (_) => Dashboard(
+              user: user,
+            ));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,15 +34,17 @@ class Dashboard extends StatelessWidget {
       ),
       child: Container(
         padding: const EdgeInsets.all(24),
-        child: const Column(
+        child: Column(
           children: [
-            Header(),
+            const Header(),
             verticalSpaceMedium,
-            BodyButtons(),
+            const BodyButtons(),
             verticalSpaceMedium,
-            UserDetails(),
+            UserDetails(
+              user: user,
+            ),
             verticalSpaceMedium,
-            BodyFooter(),
+            const BodyFooter(),
             verticalSpaceMedium,
           ],
         ),

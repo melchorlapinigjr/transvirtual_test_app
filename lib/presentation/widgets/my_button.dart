@@ -9,6 +9,7 @@ class MyButton extends StatelessWidget {
   final Color? color;
   final double? borderRadius;
   final IconData? leadingIcon;
+  final bool? isLoading;
 
   const MyButton(
       {super.key,
@@ -16,7 +17,8 @@ class MyButton extends StatelessWidget {
       required this.label,
       this.color,
       this.borderRadius,
-      this.leadingIcon});
+      this.leadingIcon,
+      this.isLoading = false});
 
   @override
   Widget build(BuildContext context) {
@@ -31,24 +33,26 @@ class MyButton extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.all(14.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            leadingIcon != null
-                ? Icon(
-                    leadingIcon,
-                    color: color ?? Colors.white,
-                    size: 32,
-                  )
-                : const SizedBox(),
-            SizedBox(width: leadingIcon != null ? 16 : 0),
-            MyLabel(
-              title: label,
-              type: TitleTypes.large,
-              color: Colors.white,
-            ),
-          ],
-        ),
+        child: isLoading!
+            ? const MyLoadingIndicator()
+            : Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  leadingIcon != null
+                      ? Icon(
+                          leadingIcon,
+                          color: color ?? Colors.white,
+                          size: 32,
+                        )
+                      : const SizedBox(),
+                  SizedBox(width: leadingIcon != null ? 16 : 0),
+                  MyLabel(
+                    title: label,
+                    type: TitleTypes.large,
+                    color: Colors.white,
+                  ),
+                ],
+              ),
       ),
     );
   }

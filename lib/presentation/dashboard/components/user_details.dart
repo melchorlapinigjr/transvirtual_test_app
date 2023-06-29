@@ -1,26 +1,45 @@
+
 import 'package:flutter/material.dart';
+import 'package:transvirtual_app/core/services/connection_helper.dart';
+import 'package:transvirtual_app/data/model/user.dart';
 import 'package:transvirtual_app/enums/title_types.dart';
 import 'package:transvirtual_app/presentation/widgets/my_label.dart';
 
 class UserDetails extends StatelessWidget {
-  const UserDetails({super.key});
+  final User user;
+
+  const UserDetails({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration:   BoxDecoration(color: Colors.white, boxShadow: [
+      decoration: BoxDecoration(color: Colors.white, boxShadow: [
         BoxShadow(
-            color: Colors.blue.shade100, blurRadius: 2.0, offset: const Offset(2, 2))
+            color: Colors.blue.shade100,
+            blurRadius: 2.0,
+            offset: const Offset(2, 2))
       ]),
-      child: const Column(
-        children: [
-          DetailsItem(label: 'TransVirtual #', value: '2323423'),
-          DetailsItem(label: 'Company', value: '2323423'),
-          DetailsItem(label: 'Warehouse', value: '2323423'),
-          DetailsItem(label: 'Login ', value: '2323423'),
-          DetailsItem(label: 'Status', value: '2323423'),
-        ],
-      ),
+      child: StreamBuilder<String>(
+          stream: ConnectionTypeHelper().getConnectionUpdateStream(),
+          initialData: 'Connectivity',
+          builder: (context, snapshot) {
+            return Column(
+              children: [
+                DetailsItem(
+                    label: 'TransVirtual #',
+                    value: user.transVirtualNumber ?? '0000'),
+                DetailsItem(
+                    label: 'Company', value: user.currentClientName ?? 'N/A'),
+                DetailsItem(
+                    label: 'Warehouse',
+                    value: user.warehouseTitle ?? 'N/A'),
+                DetailsItem(
+                    label: 'Login ', value: user.currentUserShortName ?? 'N/A'),
+                DetailsItem(
+                    label: 'Status', value: 'Connected via ${snapshot.data}'),
+              ],
+            );
+          }),
     );
   }
 }
@@ -39,8 +58,7 @@ class DetailsItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              width: 136,
-              alignment: Alignment.topLeft,
+              width: 128,
               color: Colors.blue.withOpacity(.1),
               padding: const EdgeInsets.all(16),
               child: MyLabel(
@@ -54,7 +72,11 @@ class DetailsItem extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(16),
               alignment: Alignment.topLeft,
-              child: MyLabel(title: value, type: TitleTypes.medium),
+              child: MyLabel(
+                title: value,
+                type: TitleTypes.medium,
+                maxLines: 3,
+              ),
             ),
           ],
         ),
