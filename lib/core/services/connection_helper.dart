@@ -3,6 +3,9 @@ import 'dart:async';
 import 'package:connectivity_plus/connectivity_plus.dart';
 
 class ConnectionTypeHelper {
+
+  // Class helper for identifying device connection type
+
   late StreamSubscription<ConnectivityResult> streamSubscription;
 
   Stream<String> getConnectionUpdateStream() {

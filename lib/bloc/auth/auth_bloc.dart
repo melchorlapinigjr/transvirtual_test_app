@@ -35,6 +35,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       final User? user =
           await authRepository.signIn(state.username, state.password);
       if (user != null) {
+        // save our user details to local preference
         localStoreRepository.setSessionToken(user.jwtToken!);
         localStoreRepository.setUserDetails(user);
         emit(state.copyWith(status: AuthStatus.success, user: user));
@@ -58,6 +59,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   void _handleDestroyUserSession(event, emit) async {
+    // destroy user session data
     await localStoreRepository.destroySession();
   }
 }
